@@ -50,6 +50,7 @@ public class ConversorDivisasFrame extends javax.swing.JFrame {
         warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Conversor de divisas EUR/USD");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
