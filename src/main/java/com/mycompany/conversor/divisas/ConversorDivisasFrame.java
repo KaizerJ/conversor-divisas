@@ -57,8 +57,8 @@ public class ConversorDivisasFrame extends javax.swing.JFrame {
         fromEURLabel.setText("EUR:*");
 
         fromEURField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fromEURFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fromEURFieldKeyReleased(evt);
             }
         });
 
@@ -80,8 +80,8 @@ public class ConversorDivisasFrame extends javax.swing.JFrame {
         fromUSDLabel.setText("USD:*");
 
         fromUSDField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fromUSDFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fromUSDFieldKeyReleased(evt);
             }
         });
 
@@ -196,13 +196,23 @@ public class ConversorDivisasFrame extends javax.swing.JFrame {
         toEURField.setText("" + Math.round(euros * 100.0) / 100.0);
     }//GEN-LAST:event_convertToEURButtonActionPerformed
 
-    private void fromEURFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fromEURFieldKeyPressed
-        fromEURField.setForeground(Color.black);
-    }//GEN-LAST:event_fromEURFieldKeyPressed
+    private void fromEURFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fromEURFieldKeyReleased
+        String fromEURInput = fromEURField.getText();
+        if(fromEURInput.matches("\\d*\\.?\\d*")){
+            fromEURField.setForeground(Color.black);
+        } else {
+            fromEURField.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_fromEURFieldKeyReleased
 
-    private void fromUSDFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fromUSDFieldKeyPressed
-        fromUSDField.setForeground(Color.black);
-    }//GEN-LAST:event_fromUSDFieldKeyPressed
+    private void fromUSDFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fromUSDFieldKeyReleased
+        String fromUSDInput = fromUSDField.getText();
+        if(fromUSDInput.matches("\\d*\\.?\\d*")){
+            fromUSDField.setForeground(Color.black);
+        } else {
+            fromUSDField.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_fromUSDFieldKeyReleased
 
     /**
      * @param args the command line arguments
